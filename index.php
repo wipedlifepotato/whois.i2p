@@ -1,3 +1,49 @@
+<html>
+	<head><title>IP Whois service for clearnet</title><meta charset=utf-8>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<style>
+			html{
+				background:silver;
+			}
+			body{
+				background:white;
+				padding: 0 auto;
+				margin: 10px auto;
+				width:80%;
+
+			}
+			#mapips{
+				background-image:url('map.jpg');
+				background-size:cover;
+				width:99%;
+				height:500px;
+				display:block;
+			}
+			#brand{
+				text-align:center;
+				text-transform:uppercase;
+				letter-spacing:0.5em;
+				color:green;
+			}
+			.center{
+				text-align:center;
+			}
+			.links{
+				list-style:none;
+			}
+			.links a:nth-child(1n):before, .links a:nth-child(1n):after{
+				color:green;
+				content: "|";
+			}
+		</style>
+	</head>
+	<body>
+	<h1 id=brand>whois.i2p</h1>
+	<div id=mapips></div>
+	<hr/>
+	
+
+		
 <?php
 //$LOCALGEOIP='/home/lialh4/localwhois/bin/geopip';
 ///home/lialh4/localwhois/bin/geopip/get_all_about_by_city_name
@@ -67,35 +113,37 @@ if( sizeof($ret) > 0 ){
 	exit(0);
 }
 ?>
-
-<html>
-	<head><title>IP Whois service for clearnet</title><meta charset=utf-8>
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-	</head>
-	<body>
-		<form action=index.php method=GET>
-			IP: <input type="text" name='IP' placeholder='127.0.0.1' /></br>
-			<input type=submit value='whois' />
-		</form></br>
-		<form action=index.php method=GET>
-			City: <input type="text" name='City' placeholder='Toronto'/></br>
-			<input type=submit value='get_all_ips_by_city' />
-		<a href='toronto_project.txt'>toronto_project.txt</a>
-		</form></br>
-		<form action=index.php method=GET>
-			email: <input type="text" name='email' placeholder='pavel@mail.ru'/></br>
-			<input type=submit value='check if email smells funny' />
-		</form></br>
-		<form action=index.php method=GET>
-			<i>boran.i2p/FaceBookLeak2019 (not fast search for now. later will be to fixed.)</i></br>
-			facebookSearch(30 lines limit. 120/users second for command limit): <input type="text" name='facebook' placeholder='+44'/></br>
-			<input type=submit value='start very long search in galactic' />
-		</form></br>
-		<a href='list_websites.php'>random websites in i2p</a><i>(later will be added check to ssh/rdp/irc/etc) </i>
-		<a href='upload_leasesets.php'>Upload own leasesets</a> <b>|</b> <a href=leasesets.pl>Script for add leasets automatic</a> | <a href='websites.db'>Download the db</a></br>
-		<a href='netdb.db'>NetDB.db for anyone!</a></br>
-		<a href='netdb_searcher.php'>*WillBeLater*</a>
+		<div class='center'>
+			<h2>Search in clearnet</h2>
+			<form action=index.php method=GET>
+				IP: <input type="text" name='IP' placeholder='127.0.0.1' /></br>
+				<input type=submit value='whois' />
+			</form></br>
+			<form action=index.php method=GET>
+				City: <input type="text" name='City' placeholder='Toronto'/></br>
+				<input type=submit value='get_all_ips_by_city' />
+			<a href='toronto_project.txt'>toronto_project.txt</a>
+			</form></br>
+			<form action=index.php method=GET>
+				email: <input type="text" name='email' placeholder='pavel@mail.ru'/></br>
+				<input type=submit value='check if email smells funny' />
+			</form></br>
+			<form action=index.php method=GET>
+				<i>boran.i2p/FaceBookLeak2019 (not fast search for now. later will be to fixed.)</i></br>
+				facebookSearch(30 lines limit. 120/users second for command limit): <input type="text" name='facebook' placeholder='+44'/></br>
+				<input type=submit value='start very long search in galactic' />
+			</form></br>
+			<ul class='links'>
+				<li><a href='list_websites.php'>random websites in i2p</a>
+					<i>(later will be added check to ssh/rdp/irc/etc) </i></li>
+				<li><a href='upload_leasesets.php'>Upload own leasesets</a>
+					<a href=leasesets.pl>Script for add leasets automatic</a>
+					<a href='websites.db'>Download the db</a></li>
+				<li><a href='netdb.db'>NetDB.db for anyone!</a> <a href='netdb_searcher.php'>*WillBeLater*</a></li>
+				<li><a href='PasswordDB'>PasswordsDB</a></li>
+			</ul>			
+			
+		</div>
 <pre>
 
 TODO: boran.i2p/snowdenarchive
